@@ -1,0 +1,23 @@
+---
+# defaults file for sa-webmin
+
+webmin_listen: 10000
+webmin_port: 10000
+
+webmin_use_ssl: 0
+
+webmin_miniserv_properties:
+   - {
+      regexp: "^listen=.*$",
+      line: "listen={{ webmin_listen }}" 
+     }
+   - {
+       regexp: "^port=.*$",
+       line: "port={{ webmin_port }}" }
+   - {
+       regexp: "^ssl=.*$",
+       line: "ssl={{ webmin_use_ssl }}"
+     }
+
+webmin_miniserv_properties_extra: []
+#   - { regexp: "^listen=.*$", line:"listen={{ webmin_listen }}" }

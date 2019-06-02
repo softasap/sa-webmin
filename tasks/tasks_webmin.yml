@@ -1,0 +1,55 @@
+---
+
+  - name: Webmin | add key http://www.webmin.com/jcameron-key.asc"
+    apt_key:
+      url: http://www.webmin.com/jcameron-key.asc
+      state: present
+    become: yes
+    tags:
+      - webmin
+
+  - name: Webmin | add apt repository
+    apt_repository:
+      repo: "deb http://download.webmin.com/download/repository sarge contrib"
+      state: present
+      filename: webmin
+      update_cache: yes
+    become: yes
+    tags:
+      - webmin
+
+  - name: Webmin | install package
+    apt:
+      name: webmin
+      state: present
+    become: yes
+    tags:
+      - webmin
+
+  - name: Webmin | Patch basic settings /etc/webmin/miniserv.conf
+    lineinfile:
+       dest: /etc/webmin/miniserv.conf
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+       insertafter: "{{ item.insertafter | default('EOF') }}"
+    with_items: "{{ webmin_miniserv_properties | default([]) }}"
+    become: yes
+    tags:
+      - webmin
+
+  - name: Webmin | Patch extra settings /etc/webmin/miniserv.conf
+    lineinfile:
+       dest: /etc/webmin/miniserv.conf
+       regexp: "{{ item.regexp }}"
+       line: "{{ item.line }}"
+       insertafter: "{{ item.insertafter | default('EOF') }}"
+    with_items: "{{ webmin_miniserv_properties_extra | default([]) }}"
+    become: yes
+    tags:
+      - webmin
+
+  - name: Webmin | Restart service
+    service: name=webmin state=restarted
+    become: yes
+    tags:
+      - webmin
