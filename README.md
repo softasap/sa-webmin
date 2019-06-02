@@ -1,7 +1,7 @@
 sa-webmin
 =========
 
-[![Build Status](https://travis-ci.org/softasap/sa-webmin.svg?branch=master)](https://travis-ci.org/softasap/sa_webmin)
+[![Build Status](https://travis-ci.com/softasap/sa_webmin.svg?branch=master)](https://travis-ci.com/softasap/sa_webmin)
 
 
 Example of usage:
@@ -11,7 +11,7 @@ Simple
 ```YAML
 
      - {
-         role: "sa-webmin"
+         role: "sa_webmin"
        }
 
 
@@ -23,7 +23,7 @@ Advanced
 
 
      - {
-         role: "sa-webmin",
+         role: "sa_webmin",
          webmin_listen: 10000,
          webmin_port: 10000,
          webmin_use_ssl: 0,
