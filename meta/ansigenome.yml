@@ -1,0 +1,22 @@
+---
+
+ansigenome_info:
+  github_url: "https://github.com/softasap/sa_webmin"
+  git_branch: "master"
+#  galaxy_id: "1550"
+
+  travis: True
+
+  license_url: 'https://tldrlegal.com/license/mit-license'
+
+  authors:
+    - name:  'Vyacheslav Voronenko'
+      url: 'http://www.voronenko.info'
+      email: 'git@voronenko.info'
+      twitter: 'softasap'
+      github: 'voronenko'
+
+  synopsis: |
+    `softasap.sa_webmin` is an Ansible role which installs
+    webmin control panel, quite popular on standalone VPS servers
+

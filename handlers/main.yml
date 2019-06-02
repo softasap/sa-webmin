@@ -1,0 +1,6 @@
+---
+# handlers file for sa-webmin
+
+  - name: restart webmin
+    service: name=webmin state=restarted
+    become: yes
