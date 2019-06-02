@@ -50,6 +50,7 @@
 
   - name: Webmin | Restart service
     service: name=webmin state=restarted
-    become: yes
+    when: docker_test is not defined
+    become: yes    
     tags:
       - webmin
