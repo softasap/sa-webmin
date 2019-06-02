@@ -12,8 +12,7 @@
     apt_repository:
       repo: "deb http://download.webmin.com/download/repository sarge contrib"
       state: present
-      filename: webmin
-      update_cache: yes
+#      update_cache: yes
     become: yes
     tags:
       - webmin
@@ -22,6 +21,7 @@
     apt:
       name: webmin
       state: present
+      update_cache: yes
     become: yes
     tags:
       - webmin
