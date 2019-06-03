@@ -4,7 +4,9 @@
 
       - name: Webmin | install package
         apt:
-          name: apt-show-versions
+          name:
+            - apt-show-versions
+            - python-apt
           state: present
         become: yes
         tags:
