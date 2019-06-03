@@ -2,7 +2,7 @@
 
   - block:
 
-      - name: Webmin | install package
+      - name: Webmin | install dependencies
         apt:
           name:
             - apt-show-versions
