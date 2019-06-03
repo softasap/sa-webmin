@@ -1,5 +1,17 @@
 ---
 
+  - block:
+
+      - name: Webmin | install package
+        apt:
+          name: apt-show-versions
+          state: present
+        become: yes
+        tags:
+          - webmin
+
+    when: docker_test is defined
+
   - name: Webmin | add key http://www.webmin.com/jcameron-key.asc"
     apt_key:
       url: http://www.webmin.com/jcameron-key.asc
@@ -12,7 +24,7 @@
     apt_repository:
       repo: "deb http://download.webmin.com/download/repository sarge contrib"
       state: present
-#      update_cache: yes
+      update_cache: yes
     become: yes
     tags:
       - webmin
@@ -51,6 +63,6 @@
   - name: Webmin | Restart service
     service: name=webmin state=restarted
     when: docker_test is not defined
-    become: yes    
+    become: yes
     tags:
       - webmin
