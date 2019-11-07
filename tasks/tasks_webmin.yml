@@ -1,11 +1,19 @@
 ---
 
   - block:
+     # https://groups.google.com/forum/#!topic/beagleboard/jXb9KhoMOsk
+      - name: Webmin | dirty test env hacks
+        shell: "rm /etc/apt/apt.conf.d/docker-gzip-indexes && apt-get purge apt-show-versions && rm /var/lib/apt/lists/*lz4 && apt-get -o Acquire::GzipIndexes=false update"
+        become: yes
+        tags:
+          - webmin
+          - skip_ansible_lint
 
       - name: Webmin | install dependencies
         apt:
           name:
             - python-apt
+            - apt-show-versions
           state: present
         become: yes
         tags:
