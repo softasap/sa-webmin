@@ -12,5 +12,5 @@
 
   roles:
      - {
-        role: "sa-webmin"
+        role: "sa_webmin"
        }

@@ -5,7 +5,6 @@
       - name: Webmin | install dependencies
         apt:
           name:
-            - apt-show-versions
             - python-apt
           state: present
         become: yes
