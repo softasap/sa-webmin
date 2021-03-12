@@ -2,7 +2,7 @@ sa-webmin
 =========
 
 [![Build Status](https://travis-ci.com/softasap/sa_webmin.svg?branch=master)](https://travis-ci.com/softasap/sa_webmin)
-
+[![Build Status](https://github.com/softasap/sa_webmin/workflows/CI/badge.svg?event=push)](https://github.com/softasap/sa_webmin/actions?query=workflow%3ACI)
 
 Example of usage:
 
